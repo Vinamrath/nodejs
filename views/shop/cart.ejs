@@ -14,6 +14,7 @@
     <ul class="cart__item-list">
       <% items.forEach((item) => { %>
         <li class="cart__item">
+          <img src="/images/product-placeholder.png" alt="Product image" class="cart__item-image" />
           <h1><%= item.productId.title %></h1>
           <h2>Quantity: <%= item.quantity %></h2>
           <form action="cart/delete-item" method="POST">
