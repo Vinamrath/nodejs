@@ -9,9 +9,14 @@
   <main>
     <% if(orders.length > 0) { %>
     <ul class="orders">
-      <% orders.forEach(order => { %>
+      <% orders.forEach(order => { 
+           let totalQty = order.products.reduce((acc, prod) => acc + prod.quantity, 0);
+      %>
       <li class="orders__item">
-        <h1>Order - #<%= order._id %> - <a href="/orders/<%= order._id %>">Invoice</a></h1>
+        <h1>
+          Order - #<%= order._id %> - 
+          <a href="/orders/<%= order._id %>">Invoice</a>
+        </h1>
         <ul class="orders__products">
           <% order.products.forEach(prod => { %>
           <li class="orders__products-item">
@@ -19,6 +24,7 @@
           </li>
           <% }); %>
         </ul>
+        <p class="orders__total"><strong>Total Items:</strong> <%= totalQty %></p>
       </li>
       <% }); %>
     </ul>
