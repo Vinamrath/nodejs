@@ -13,7 +13,10 @@
           <header class="card__header">
             <h1 class="product__title"><%= item.title %></h1>
           </header>
-          <div class="card__image">
+          <div class="card__image" style="position: relative;">
+            <% if (item.onSale) { %>
+              <div class="badge badge--sale">SALE</div>
+            <% } %>
             <img src="/<%= item.imageUrl %>" alt="<%= item.title %>">
           </div>
           <div class="card__content">
